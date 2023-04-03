@@ -1,0 +1,29 @@
+@startuml Diagrama de container - ConstruI9
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include DEVICONS/angular.puml
+!include DEVICONS/database.puml
+!include DEVICONS/java.puml
+
+LAYOUT_WITH_LEGEND()
+
+Person(presidente, "Presidente", "Administrador do sistema, dono da empresa.")
+Person(caixa, "Caixa", "Utilizador do sistema, caixa da empresa.")
+
+System_Boundary(systemConstruI9, "Sistema ConstruI9") {
+    Container(spaConstruI9, "SPA", "angular 15, type-script, docker", "Front-End para utilização do sistema construI9", $sprite="angular")
+    Container(apiConstruI9, "API", "java 19, spring boot 3, gradle, docker")
+    ContainerDb(dbConstruI9, "DataBase", "postgresql, docker")
+}
+
+Rel(presidente, spaConstruI9, "Utiliza")
+Rel(caixa, spaConstruI9, "Utiliza")
+
+Rel(spaConstruI9, apiConstruI9, "Usa", "HTTP/JSON")
+Rel(apiConstruI9, dbConstruI9, "Read/Write")
+
+
+@enduml

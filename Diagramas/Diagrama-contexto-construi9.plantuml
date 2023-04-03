@@ -1,0 +1,15 @@
+@startuml Diagrama de Contexto - ConstruI9
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(presidente, "Presidente", "Administrador do sistema, dono da empresa.")
+Person(caixa, "Caixa", "Utilizador do sistema, caixa da empresa.")
+System(construI9, "ConstruI9", "Sistema para administrar e controlar produtos, estoque e vendas da empresa.")
+
+
+Rel(presidente, construI9, "Utiliza")
+Rel(caixa, construI9, "Utiliza")
+
+
+
+@enduml
