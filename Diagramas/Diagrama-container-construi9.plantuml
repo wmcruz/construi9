@@ -25,5 +25,4 @@ Rel(caixa, spaConstruI9, "Utiliza")
 Rel(spaConstruI9, apiConstruI9, "Usa", "HTTP/JSON")
 Rel(apiConstruI9, dbConstruI9, "Read/Write")
 
-
 @enduml
